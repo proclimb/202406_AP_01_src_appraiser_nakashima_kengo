@@ -132,7 +132,7 @@ function subStockView($param)
 			<table border="0" cellpadding="5" cellspacing="1">
 				<tr>
 					<th class="list_head">担当<?php fnOrder('CHARGE', 'stockSearch') ?></th>
-					<th class="list_head">ランク<?php fnOrder('RANK', 'stockSearch') ?></th>
+					<th class="list_head">ランク<?php fnOrder(`RANK`, 'stockSearch') ?></th>
 					<th class="list_head">日付<?php fnOrder('INSDT', 'stockSearch') ?></th>
 					<th class="list_head">物件名<?php fnOrder('ARTICLE', 'stockSearch') ?></th>
 					<th class="list_head">部屋<?php fnOrder('ROOM', 'stockSearch') ?></th>
@@ -152,23 +152,23 @@ function subStockView($param)
 				$res  = mysqli_query($param["conn"], $sql);
 				$i = 0;
 				while ($row = mysqli_fetch_array($res)) {
-					$stockNo     = htmlspecialchars($row[1]);
-					$charge      = htmlspecialchars($row[2]);
-					$rank        = fnRankName(htmlspecialchars($row[3] - 1));
-					$insDT       = htmlspecialchars($row[4]);
-					$article     = htmlspecialchars($row[5]);
-					$articleFuri = htmlspecialchars($row[6]);
-					$room        = htmlspecialchars($row[7]);
-					$area        = htmlspecialchars($row[8]);
-					$station     = htmlspecialchars($row[9]);
-					$distance    = fnRankName(htmlspecialchars($row[10] - 1));
-					$agent       = htmlspecialchars($row[11]);
-					$store       = htmlspecialchars($row[12]);
-					$cover       = htmlspecialchars($row[13]);
-					$visitDT     = htmlspecialchars($row[14]);
-					$deskPrice   = htmlspecialchars(fnNumFormat($row[15]));
-					$vendorPrice = htmlspecialchars(fnNumFormat($row[16]));
-					$note        = htmlspecialchars($row[17]);
+					$stockNo     = htmlspecialchars($row[0]);
+					$charge      = htmlspecialchars($row[1]);
+					$rank        = fnRankName(htmlspecialchars($row[2] - 1));
+					$insDT       = htmlspecialchars($row[3]);
+					$article     = htmlspecialchars($row[4]);
+					$articleFuri = htmlspecialchars($row[5]);
+					$room        = htmlspecialchars($row[6]);
+					$area        = htmlspecialchars($row[7]);
+					$station     = htmlspecialchars($row[8]);
+					$distance    = fnRankName(htmlspecialchars($row[9] - 1));
+					$agent       = htmlspecialchars($row[10]);
+					$store       = htmlspecialchars($row[11]);
+					$cover       = htmlspecialchars($row[12]);
+					$visitDT     = htmlspecialchars($row[13]);
+					$deskPrice   = htmlspecialchars(fnNumFormat($row[14]));
+					$vendorPrice = htmlspecialchars(fnNumFormat($row[15]));
+					$note        = htmlspecialchars($row[16]);
 				?>
 					<tr>
 						<td class="list_td<?php print $i; ?>"><?php print $charge; ?></td>
