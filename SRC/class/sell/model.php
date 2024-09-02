@@ -110,7 +110,7 @@ function fnSqlSellUpdate($param)
     $sql .= ",SELLER = '" . $param["seller"] . "'";
     $sql .= ",PRICE = '" . $param["price"] . "'";
     $sql .= ",NOTE = '" . $param["note"] . "'";
-    $sql .= ",UPDT = CURRENT_TIMESTAMP";
+    $sql .= " WHERE SELLNO = " . $param["sellNo"]; // ← 追加
 
     return $sql;
 }
